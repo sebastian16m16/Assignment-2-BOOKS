@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Assignment2.DataBase;
 using System.Data.SqlClient;
 using Assignment2.Model;
+using Microsoft.VisualBasic;
 
 namespace Assignment2
 {
@@ -40,9 +41,7 @@ namespace Assignment2
 
         }
 
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Message Box", "title", MessageBoxButtons.OKCancel); 
-        }
+        
+
     }
 }

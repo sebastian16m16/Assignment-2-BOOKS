@@ -33,7 +33,6 @@
             this.loginBtn = new System.Windows.Forms.Button();
             this.username = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // usernameTextBox
@@ -78,22 +77,11 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Password";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(118, 371);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 32);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "New Login";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
-            // 
             // BooksApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(369, 450);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.username);
             this.Controls.Add(this.loginBtn);
@@ -113,7 +101,6 @@
         private System.Windows.Forms.Button loginBtn;
         private System.Windows.Forms.Label username;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
     }
 }
 
