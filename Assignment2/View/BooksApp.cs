@@ -19,15 +19,30 @@ namespace Assignment2
         {
             InitializeComponent();
 
-            Book book = new Book("Valvet Dream", "Ion Popa", "roman", 34.6);
+            //Book book = new Book("Valvet Dream", "Ion Popa", "roman", 34.6);
 
-            book.insertBook();
+            //book.insertBook();
 
-            Console.WriteLine(book.bookInfo());
+            //Console.WriteLine(book.bookInfo());
+
+
+            Book tes1 = new Book();
+            tes1.book_id = 5;
+            tes1.updateBookObject();
+            Console.WriteLine(tes1.bookInfo());
+
+            tes1.updatePrice(40);
+            Console.WriteLine(tes1.bookInfo());
+
+            tes1.deleteBook();
+
 
 
         }
 
-       
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Message Box", "title", MessageBoxButtons.OKCancel); 
+        }
     }
 }

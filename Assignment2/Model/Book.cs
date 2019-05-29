@@ -12,11 +12,11 @@ namespace Assignment2.Model
 {
     class Book
     {
-        int book_id { get; set; }
-        string title { get; set; }
-        string author { get; set; }
-        string genre { get; set; }
-        double price { get; set; }
+        public int book_id { get; set; }
+        public string title { get; set; }
+        public string author { get; set; }
+        public string genre { get; set; }
+        public double price { get; set; }
 
         DBConnection dBConnection = new DBConnection();
 
@@ -70,11 +70,11 @@ namespace Assignment2.Model
             return book_id + " " + title + " " + author + " " + genre + " " + price;
         }
 
-        public void getBookInfo()
+        public void updateBookObject()
         {
 
             //if id is not null
-            if (book_id != null)
+            if (book_id != 0)
             {
                 String stmt = "Select * from bookshelf where book_id = @book_id";
 
@@ -125,5 +125,85 @@ namespace Assignment2.Model
                 }
             }
         }
+
+        public bool deleteBook()
+        {
+
+            if (title != null && author != null)
+            {
+                String stmt = "Delete from bookshelf where title = @title and author = @author";
+
+                using (SqlCommand command = new SqlCommand(stmt, dBConnection.getConnection()))
+                {
+                    command.Parameters.AddWithValue("@title", title);
+                    command.Parameters.AddWithValue("@author", author);
+                    command.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            else
+                return false;
+        }
+
+        public bool updateTitle(String newTitle)
+        {
+            this.title = newTitle;
+
+            String stmt = "Update bookshelf set title = @title";
+
+            using (SqlCommand command = new SqlCommand(stmt, dBConnection.getConnection()))
+            {
+                command.Parameters.AddWithValue("@title", title);
+                command.ExecuteNonQuery();
+                return true;
+            }
+            return false;
+        }
+
+        public bool updatePrice(double newPrice)
+        {
+            this.price = newPrice;
+
+            String stmt = "Update bookshelf set price = @price";
+
+            using (SqlCommand command = new SqlCommand(stmt, dBConnection.getConnection()))
+            {
+                command.Parameters.AddWithValue("@price", price);
+                command.ExecuteNonQuery();
+                return true;
+            }
+            return false;
+        }
+
+        public bool updateAuthor(String newAuthor)
+        {
+            this.author = newAuthor;
+
+            String stmt = "Update bookshelf set author = @author";
+
+            using (SqlCommand command = new SqlCommand(stmt, dBConnection.getConnection()))
+            {
+                command.Parameters.AddWithValue("@author", author);
+                command.ExecuteNonQuery();
+                return true;
+            }
+            return false;
+        }
+
+        public bool updateGenre(String newGenre)
+        {
+            this.genre = newGenre;
+
+            String stmt = "Update bookshelf set genre = @genre";
+
+            using (SqlCommand command = new SqlCommand(stmt, dBConnection.getConnection()))
+            {
+                command.Parameters.AddWithValue("@genre", genre);
+                command.ExecuteNonQuery();
+                return true;
+            }
+            return false;
+        }
+        
     }
 }

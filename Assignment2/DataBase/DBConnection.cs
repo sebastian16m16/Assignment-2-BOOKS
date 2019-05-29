@@ -19,10 +19,10 @@ namespace Assignment2.DataBase
         {
             connection = new SqlConnection(connectionString);
             connection.Open();
-            if(connection.State == System.Data.ConnectionState.Open)
-            {
-                MessageBox.Show("Connection Established!");
-            }
+            //if(connection.State == System.Data.ConnectionState.Open)
+            //{
+            //    MessageBox.Show("Connection Established!");
+            //}
             return connection;
         }
 
