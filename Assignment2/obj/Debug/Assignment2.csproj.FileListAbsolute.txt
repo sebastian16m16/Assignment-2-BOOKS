@@ -1,0 +1,10 @@
+C:\Learning\C#\Software Design\Assignment2\Assignment2\bin\Debug\Assignment2.exe.config
+C:\Learning\C#\Software Design\Assignment2\Assignment2\bin\Debug\Assignment2.exe
+C:\Learning\C#\Software Design\Assignment2\Assignment2\bin\Debug\Assignment2.pdb
+C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.csprojAssemblyReference.cache
+C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.Properties.Resources.resources
+C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.csproj.GenerateResource.cache
+C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.csproj.CoreCompileInputs.cache
+C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.exe
+C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.pdb
+C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.BooksApp.resources
