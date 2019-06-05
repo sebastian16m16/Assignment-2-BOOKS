@@ -7,4 +7,8 @@ C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.csp
 C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.csproj.CoreCompileInputs.cache
 C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.exe
 C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.pdb
-C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.BooksApp.resources
+C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.View.UserGUI.resources
+C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.LoginGUI.resources
+C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.View.AdminGUI.resources
+C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.View.CreateBookGUI.resources
+C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.View.UserOP.SellWindow.resources

@@ -34,9 +34,10 @@ namespace Assignment2.Model
 
             using(SqlCommand command = new SqlCommand(stmt, dBConnection.getConnection()))
             {
+                command.Parameters.AddWithValue("@username", username);
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.HasRows)
-                    return false;
+                    return true;
             }
 
             return false;

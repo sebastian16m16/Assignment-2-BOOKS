@@ -6,34 +6,70 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Assignment2.DataBase;
-
+using Assignment2.Model.Interface;
+using Assignment2.View;
+using Assignment2.View.Interface;
 
 namespace Assignment2.Model
 {
-    class Book
+    class Book : IBookModel
     {
         public int book_id { get; set; }
         public string title { get; set; }
         public string author { get; set; }
         public string genre { get; set; }
         public double price { get; set; }
+        public int quantity { get; set; }
 
         DBConnection dBConnection = new DBConnection();
+        List<IUserView> observers = new List<IUserView>();
 
-        public Book(string title, string author, string genre, double price)
+        public Book(string title, string author, string genre, double price, int quantity)
         {
             this.title = title;
             this.author = author;
             this.genre = genre;
             this.price = price;
+            this.quantity = quantity;
         }
 
         public Book() { }
 
+        public Book(int book_id, string title, string author, string genre, double price, int quantity)
+        {
+            this.book_id = book_id;
+            this.title = title;
+            this.author = author;
+            this.genre = genre;
+            this.price = price;
+            this.quantity = quantity;
+        }
 
+
+
+
+        public void addObserver(IUserView user)
+        {
+            observers.Add(user);
+        }
+
+        public void removeObserver(IUserView user)
+        {
+            observers.Remove(user);
+        }
+
+        public void notifyAll()
+        {
+            foreach (IUserView view in observers)
+            {
+                view.update();
+            }
+        }
+
+        //METHODS
         public void insertBook()
         {
-            String stmt = "Insert into Bookshelf (title, author, genre, price) values (@title, @author, @genre, @price)";
+            String stmt = "Insert into Bookshelf (title, author, genre, price, quantity) values (@title, @author, @genre, @price, @quantity)";
 
 
             using (SqlCommand command = new SqlCommand(stmt, dBConnection.getConnection()))
@@ -42,6 +78,7 @@ namespace Assignment2.Model
                 command.Parameters.AddWithValue("@author", author);
                 command.Parameters.AddWithValue("@genre", genre);
                 command.Parameters.AddWithValue("@price", price);
+                command.Parameters.AddWithValue("@quantity", quantity);
                 command.ExecuteNonQuery();
                 Console.WriteLine("Book inserted!");
 
@@ -63,6 +100,7 @@ namespace Assignment2.Model
                     }
                 }
             }
+            this.notifyAll();
         }
 
         public string bookInfo()
@@ -124,6 +162,7 @@ namespace Assignment2.Model
                     }
                 }
             }
+            this.notifyAll();
         }
 
         public bool deleteBook()
@@ -138,6 +177,8 @@ namespace Assignment2.Model
                     command.Parameters.AddWithValue("@title", title);
                     command.Parameters.AddWithValue("@author", author);
                     command.ExecuteNonQuery();
+
+                    this.notifyAll();
                     return true;
                 }
             }
@@ -155,6 +196,8 @@ namespace Assignment2.Model
             {
                 command.Parameters.AddWithValue("@title", title);
                 command.ExecuteNonQuery();
+
+                this.notifyAll();
                 return true;
             }
             return false;
@@ -170,6 +213,8 @@ namespace Assignment2.Model
             {
                 command.Parameters.AddWithValue("@price", price);
                 command.ExecuteNonQuery();
+
+                this.notifyAll();
                 return true;
             }
             return false;
@@ -185,6 +230,8 @@ namespace Assignment2.Model
             {
                 command.Parameters.AddWithValue("@author", author);
                 command.ExecuteNonQuery();
+
+                this.notifyAll();
                 return true;
             }
             return false;
@@ -200,10 +247,74 @@ namespace Assignment2.Model
             {
                 command.Parameters.AddWithValue("@genre", genre);
                 command.ExecuteNonQuery();
+
+                this.notifyAll();
                 return true;
             }
             return false;
         }
-        
+
+        public bool updateQuantity(int newQuantity)
+        {
+            this.quantity = newQuantity;
+
+            String stmt = "Update bookshelf set quantity = @quantity";
+
+            using (SqlCommand command = new SqlCommand(stmt, dBConnection.getConnection()))
+            {
+                command.Parameters.AddWithValue("@quantity", quantity);
+                command.ExecuteNonQuery();
+
+                this.notifyAll();
+                return true;
+            }
+            return false;
+        }
+
+        public bool existsBook()
+        {
+            if (author != null && title != null)
+            {
+                String stmt = "Select * from bookshelf where author = @author and title = @title";
+
+                using (SqlCommand command = new SqlCommand(stmt, dBConnection.getConnection()))
+                {
+                    command.Parameters.AddWithValue("@author", this.author);
+                    command.Parameters.AddWithValue("@title", this.title);
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                        return true;
+                    else
+                        return false;
+                }
+            }
+            else
+                return false;
+        }
+
+        public bool sellBook(int selledQuantity)
+        {
+            if(selledQuantity < this.quantity)
+            {
+                String stmt = "Update bookshelf set quantity = quantity - @selledQuantity where author = @author and title = @title";
+
+                using (SqlCommand command = new SqlCommand(stmt, dBConnection.getConnection()))
+                {
+                    command.Parameters.AddWithValue("@selledQuantity", selledQuantity);
+                    command.Parameters.AddWithValue("@author", this.author);
+                    command.Parameters.AddWithValue("@title", this.title);
+                    command.ExecuteNonQuery();
+
+                    this.notifyAll();
+                    return true;
+                }
+            } else
+                 return false;
+        }
+
     }
+        
 }
+

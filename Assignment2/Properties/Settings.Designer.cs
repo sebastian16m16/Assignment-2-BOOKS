@@ -33,5 +33,16 @@ namespace Assignment2.Properties {
                 return ((string)(this["Database1ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-EJFE3EN\\SQLEXPRESS;Initial Catalog=Book;Integrated Security=T" +
+            "rue")]
+        public string BookConnectionString {
+            get {
+                return ((string)(this["BookConnectionString"]));
+            }
+        }
     }
 }

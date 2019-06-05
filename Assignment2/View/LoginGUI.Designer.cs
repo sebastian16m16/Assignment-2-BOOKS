@@ -1,6 +1,6 @@
 ﻿namespace Assignment2
 {
-    partial class BooksApp
+    partial class LoginGUI
     {
         /// <summary>
         /// Required designer variable.
@@ -54,10 +54,11 @@
             // 
             this.loginBtn.Location = new System.Drawing.Point(135, 304);
             this.loginBtn.Name = "loginBtn";
-            this.loginBtn.Size = new System.Drawing.Size(91, 30);
+            this.loginBtn.Size = new System.Drawing.Size(91, 48);
             this.loginBtn.TabIndex = 2;
             this.loginBtn.Text = "Login";
             this.loginBtn.UseVisualStyleBackColor = true;
+            this.loginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
             // 
             // username
             // 
