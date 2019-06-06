@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Assignment2.Controller.Interact;
 using Assignment2.Model;
+using Assignment2.Controller;
+using Assignment2.Controller.Generate_Files;
 
 namespace Assignment2.View.AdminOP
 {
@@ -56,6 +58,16 @@ namespace Assignment2.View.AdminOP
                 adminInteract.updateGenre(this.book, genreTextBox.Text);
                 adminInteract.updatePrice(this.book, Double.Parse(priceTextBox.Text));
                 adminInteract.updateQuantity(this.book, Int32.Parse(quantityTextBox.Text));
+
+                if(Int32.Parse(quantityTextBox.Text) > 0)
+                {
+                    GeneratePDF generatePDF = new GeneratePDF();
+                    GenerateCSV generateCSV = new GenerateCSV();
+                    String filename = authorTextBox.Text +"-"+ titleTextBox.Text;
+                    generatePDF.deleteFile(filename);
+                    generateCSV.deleteNowOnStockBook(titleTextBox.Text, authorTextBox.Text);
+                    
+                }
 
                 MessageBox.Show("Book updated!\n\n" +
                     "Title: "+ titleTextBox.Text+"\n" +

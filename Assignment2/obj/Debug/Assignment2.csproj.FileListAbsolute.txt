@@ -14,3 +14,6 @@ C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.Vie
 C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.View.UserOP.SellWindow.resources
 C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.View.AdminOP.EditBookGUI.resources
 C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.View.AdminOP.DeleteWindow.resources
+C:\Learning\C#\Software Design\Assignment2\Assignment2\bin\Debug\itextsharp.dll
+C:\Learning\C#\Software Design\Assignment2\Assignment2\bin\Debug\itextsharp.xml
+C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.csproj.CopyComplete

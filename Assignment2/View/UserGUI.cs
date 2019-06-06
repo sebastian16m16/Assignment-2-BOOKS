@@ -34,7 +34,7 @@ namespace Assignment2.View
             {
                 LoginGUI login = new LoginGUI();
                 login.Show();
-                this.Close();
+                this.Hide();
             }
             
         }
@@ -94,6 +94,11 @@ namespace Assignment2.View
         {
             titleCheckBox.Checked = false;
             authorCheckBox.Checked = false;
+        }
+
+        private void UserGUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

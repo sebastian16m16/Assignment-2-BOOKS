@@ -314,7 +314,7 @@ namespace Assignment2.Model
 
         public bool sellBook(int selledQuantity)
         {
-            if(selledQuantity < this.quantity)
+            if(selledQuantity <= this.quantity)
             {
                 String stmt = "Update bookshelf set quantity = quantity - @selledQuantity where author = @author and title = @title";
 

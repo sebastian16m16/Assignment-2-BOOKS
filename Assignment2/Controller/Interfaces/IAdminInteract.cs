@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Assignment2.Model;
 using Assignment2.View.Interface;
+using System.Windows.Forms;
 
 namespace Assignment2.Controller.Interfaces
 {
@@ -18,5 +19,6 @@ namespace Assignment2.Controller.Interfaces
         void updatePrice(Book book, double newPrice);
         void updateQuantity(Book book, int newQuantity);
         Book getBook(string title, string author, IObserver observer);
+        void updateTable(DataGridView resultsTable);
     }
 }

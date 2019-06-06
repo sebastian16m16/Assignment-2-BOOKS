@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using Assignment2.View;
 using Assignment2.Controller.Interact;
 using Assignment2.Model;
+using Assignment2.Controller;
+using Assignment2.Controller.Generate_Files;
 
 namespace Assignment2.View.UserOP
 {
@@ -27,29 +29,52 @@ namespace Assignment2.View.UserOP
         UserInteract userInteract = new UserInteract();
 
         Book book;
-        
-        
-
+      
         private void SellButton_Click(object sender, EventArgs e)
         {
             this.book = userInteract.getBook(titleBox.Text, authorBox.Text, user);
 
             if (userInteract.existsBook(this.book))
             {
-                if (Int32.Parse(quantityBox.Text) < book.quantity)
+                if (!quantityBox.Text.Equals(""))
                 {
-                    book.addObserver(user);
-                    userInteract.sellBook(book, Int32.Parse(quantityBox.Text));
+                    if (Int32.Parse(quantityBox.Text) <= book.quantity)
+                    {
+                        book.addObserver(user);
+                        userInteract.sellBook(book, Int32.Parse(quantityBox.Text));
+
+                        if (Int32.Parse(quantityBox.Text) == book.quantity)
+                        {
+                            GeneratePDF generatePDF = new GeneratePDF();
+                            GenerateCSV generateCSV = new GenerateCSV();
+
+                            String text = "Title: " + book.title + "\n" +
+                                "Author: " + book.author + "\n" +
+                                "Genre: " + book.genre;
+                            String filename = book.author +"-"+ book.title;
+                            generatePDF.createPDF(filename, text);
+
+                            generateCSV.addNeededBook(book.title, book.author);
 
 
-                    MessageBox.Show("Selled " + quantityBox.Text + " books: \n" +
-                        "Title: " + titleBox.Text + "\n" +
-                        "Author: " + authorBox.Text + "\n" +
-                        "Total price: " + totalLabel.Text);
-                    this.Close();
+                            MessageBox.Show("There are no more books with: \n" +
+                                "Title: " + book.title + "\n" +
+                                "Author: " + book.author);
+                        }
+
+
+                        MessageBox.Show("Selled " + quantityBox.Text + " books: \n" +
+                            "Title: " + titleBox.Text + "\n" +
+                            "Author: " + authorBox.Text + "\n" +
+                            "Total price: " + totalLabel.Text);
+                        this.Close();
+                    }
+                    else
+                        MessageBox.Show("Insufficient stock!");
                 }
                 else
-                    MessageBox.Show("Insufficient stock!");
+                    MessageBox.Show("Please fill the Quantity field!");
+                
                 
             }
             else

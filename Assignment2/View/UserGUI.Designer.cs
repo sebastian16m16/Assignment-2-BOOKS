@@ -235,6 +235,7 @@
             this.Controls.Add(this.searchBox);
             this.Name = "UserGUI";
             this.Text = "UserGUI";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserGUI_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.bookshelfBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookDataSet)).EndInit();

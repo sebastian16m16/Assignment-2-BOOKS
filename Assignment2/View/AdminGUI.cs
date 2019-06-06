@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Assignment2.View;
 using Assignment2.View.Interface;
 using Assignment2.View.AdminOP;
+using Assignment2.Controller.Interact;
 
 
 namespace Assignment2.View
@@ -22,12 +23,14 @@ namespace Assignment2.View
             CenterToScreen();
         }
 
+        AdminInteract adminInteract = new AdminInteract();
+
         private void BackButton_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("Are you sure?", "Exit Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Question)== DialogResult.Yes)
             {
                 FormState.PreviousPage.Show();
-                this.Close();
+                this.Hide();
             }
             
         }
@@ -41,6 +44,7 @@ namespace Assignment2.View
         public void update()
         {
             this.bookShelfTableAdapter1.Fill(this.bookDataSet1.BookShelf);
+            adminInteract.updateTable(resultsTable);
         }
 
         private void ViewAllButton_Click(object sender, EventArgs e)
@@ -58,6 +62,11 @@ namespace Assignment2.View
         {
             DeleteWindow deleteWindow = new DeleteWindow(this);
             deleteWindow.Show();
+        }
+
+        private void AdminGUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

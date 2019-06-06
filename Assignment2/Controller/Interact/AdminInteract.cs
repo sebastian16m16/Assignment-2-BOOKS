@@ -9,6 +9,8 @@ using Assignment2.Model;
 using System.Data.SqlClient;
 using Assignment2.DataBase;
 using Assignment2.View.Interface;
+using System.Windows.Forms;
+using System.Data;
 
 namespace Assignment2.Controller.Interact
 {
@@ -72,6 +74,26 @@ namespace Assignment2.Controller.Interact
         public void updateGenre(Book book, string newGenre)
         {
             book.updateGenre(newGenre);
+        }
+        public void updateTable(DataGridView resultsTable)
+        {
+            String stmt = "Select * from bookshelf";
+
+            using (SqlCommand command = new SqlCommand(stmt, dBConnection.getConnection()))
+            {
+                SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                dataAdapter.SelectCommand = command;
+
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+
+                BindingSource bindingSource = new BindingSource();
+                bindingSource.DataSource = dataTable;
+
+                resultsTable.DataSource = bindingSource;
+
+                dataAdapter.Update(dataTable);
+            }
         }
     }
 }

@@ -52,5 +52,10 @@ namespace Assignment2
             else
                 MessageBox.Show("Invalid Login");
         }
+
+        private void LoginGUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

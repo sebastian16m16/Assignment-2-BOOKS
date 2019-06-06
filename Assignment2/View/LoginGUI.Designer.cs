@@ -78,7 +78,7 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Password";
             // 
-            // BooksApp
+            // LoginGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -88,8 +88,9 @@
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.usernameTextBox);
-            this.Name = "BooksApp";
+            this.Name = "LoginGUI";
             this.Text = "Book";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginGUI_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
