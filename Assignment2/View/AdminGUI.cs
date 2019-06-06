@@ -9,35 +9,33 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Assignment2.View;
 using Assignment2.View.Interface;
+using Assignment2.View.AdminOP;
 
 
 namespace Assignment2.View
 {
-    public partial class AdminGUI : Form, IAdminView 
+    public partial class AdminGUI : Form, IObserver 
     {
         public AdminGUI()
         {
             InitializeComponent();
             CenterToScreen();
-            
-            
         }
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-
-            LoginGUI books = new LoginGUI();
-            books.Show();
-            this.Close();
-
-
+            if(MessageBox.Show("Are you sure?", "Exit Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Question)== DialogResult.Yes)
+            {
+                FormState.PreviousPage.Show();
+                this.Close();
+            }
+            
         }
 
         private void CreateButton_Click(object sender, EventArgs e)
         {
-            CreateBookGUI create = new CreateBookGUI();
+            CreateBookGUI create = new CreateBookGUI(this);
             create.Show();
-            this.Hide();
         }
 
         public void update()
@@ -50,6 +48,16 @@ namespace Assignment2.View
             this.update();
         }
 
-        
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            EditBookGUI editBookGUI = new EditBookGUI(this);
+            editBookGUI.Show();
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            DeleteWindow deleteWindow = new DeleteWindow(this);
+            deleteWindow.Show();
+        }
     }
 }

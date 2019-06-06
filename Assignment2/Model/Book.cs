@@ -21,21 +21,34 @@ namespace Assignment2.Model
         public double price { get; set; }
         public int quantity { get; set; }
 
-        DBConnection dBConnection = new DBConnection();
-        List<IUserView> observers = new List<IUserView>();
+       
+        private IObserver userView;
 
-        public Book(string title, string author, string genre, double price, int quantity)
+        DBConnection dBConnection = new DBConnection();
+        List<IObserver> observers = new List<IObserver>();
+
+        public Book()
+        {
+        }
+
+        public Book(string title, string author, string genre, double price, int quantity, IObserver userView)
         {
             this.title = title;
             this.author = author;
             this.genre = genre;
             this.price = price;
             this.quantity = quantity;
+            this.userView = userView;
+            addObserver(userView);
         }
 
-        public Book() { }
+        public Book(IObserver userView)
+        {
+            this.userView = userView;
+            addObserver(userView);
+        }
 
-        public Book(int book_id, string title, string author, string genre, double price, int quantity)
+        public Book(int book_id, string title, string author, string genre, double price, int quantity, IObserver userView)
         {
             this.book_id = book_id;
             this.title = title;
@@ -43,24 +56,25 @@ namespace Assignment2.Model
             this.genre = genre;
             this.price = price;
             this.quantity = quantity;
+            this.userView = userView;
+            addObserver(userView);
         }
 
+       
 
-
-
-        public void addObserver(IUserView user)
+        public void addObserver(IObserver user)
         {
             observers.Add(user);
         }
 
-        public void removeObserver(IUserView user)
+        public void removeObserver(IObserver user)
         {
             observers.Remove(user);
         }
 
         public void notifyAll()
         {
-            foreach (IUserView view in observers)
+            foreach (IObserver view in observers)
             {
                 view.update();
             }
@@ -170,12 +184,11 @@ namespace Assignment2.Model
 
             if (title != null && author != null)
             {
-                String stmt = "Delete from bookshelf where title = @title and author = @author";
+                String stmt = "Delete from bookshelf where book_id = @id";
 
                 using (SqlCommand command = new SqlCommand(stmt, dBConnection.getConnection()))
                 {
-                    command.Parameters.AddWithValue("@title", title);
-                    command.Parameters.AddWithValue("@author", author);
+                    command.Parameters.AddWithValue("@id", book_id);
                     command.ExecuteNonQuery();
 
                     this.notifyAll();
@@ -190,11 +203,12 @@ namespace Assignment2.Model
         {
             this.title = newTitle;
 
-            String stmt = "Update bookshelf set title = @title";
+            String stmt = "Update bookshelf set title = @title where book_id = @id";
 
             using (SqlCommand command = new SqlCommand(stmt, dBConnection.getConnection()))
             {
                 command.Parameters.AddWithValue("@title", title);
+                command.Parameters.AddWithValue("@id", book_id);
                 command.ExecuteNonQuery();
 
                 this.notifyAll();
@@ -207,11 +221,12 @@ namespace Assignment2.Model
         {
             this.price = newPrice;
 
-            String stmt = "Update bookshelf set price = @price";
+            String stmt = "Update bookshelf set price = @newPrice where book_id = @id";
 
             using (SqlCommand command = new SqlCommand(stmt, dBConnection.getConnection()))
             {
-                command.Parameters.AddWithValue("@price", price);
+                command.Parameters.AddWithValue("@newPrice", price);
+                command.Parameters.AddWithValue("@id", book_id);
                 command.ExecuteNonQuery();
 
                 this.notifyAll();
@@ -224,11 +239,12 @@ namespace Assignment2.Model
         {
             this.author = newAuthor;
 
-            String stmt = "Update bookshelf set author = @author";
+            String stmt = "Update bookshelf set author = @newAuthor where book_id = @id";
 
             using (SqlCommand command = new SqlCommand(stmt, dBConnection.getConnection()))
             {
-                command.Parameters.AddWithValue("@author", author);
+                command.Parameters.AddWithValue("@newAuthor", author);
+                command.Parameters.AddWithValue("@id", book_id);
                 command.ExecuteNonQuery();
 
                 this.notifyAll();
@@ -241,11 +257,12 @@ namespace Assignment2.Model
         {
             this.genre = newGenre;
 
-            String stmt = "Update bookshelf set genre = @genre";
+            String stmt = "Update bookshelf set genre = @newGenre where book_id = @id";
 
             using (SqlCommand command = new SqlCommand(stmt, dBConnection.getConnection()))
             {
-                command.Parameters.AddWithValue("@genre", genre);
+                command.Parameters.AddWithValue("@newGenre", genre);
+                command.Parameters.AddWithValue("@id", book_id);
                 command.ExecuteNonQuery();
 
                 this.notifyAll();
@@ -258,11 +275,12 @@ namespace Assignment2.Model
         {
             this.quantity = newQuantity;
 
-            String stmt = "Update bookshelf set quantity = @quantity";
+            String stmt = "Update bookshelf set quantity = @newQuantity where book_id = @id";
 
             using (SqlCommand command = new SqlCommand(stmt, dBConnection.getConnection()))
             {
-                command.Parameters.AddWithValue("@quantity", quantity);
+                command.Parameters.AddWithValue("@newQuantity", quantity);
+                command.Parameters.AddWithValue("@id", book_id);
                 command.ExecuteNonQuery();
 
                 this.notifyAll();

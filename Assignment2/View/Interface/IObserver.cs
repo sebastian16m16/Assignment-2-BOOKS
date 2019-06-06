@@ -7,7 +7,7 @@ using Assignment2.Model;
 
 namespace Assignment2.View.Interface
 {
-    interface IUserView
+    interface IObserver
     {
         void update();
 

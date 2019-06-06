@@ -73,14 +73,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BookDataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Controller\GetTableData.cs" />
     <Compile Include="Controller\Interact\AdminInteract.cs" />
     <Compile Include="Controller\Interact\UserInteract.cs" />
     <Compile Include="Controller\Interfaces\IAdminInteract.cs" />
+    <Compile Include="View\AdminOP\DeleteWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminOP\DeleteWindow.Designer.cs">
+      <DependentUpon>DeleteWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminOP\EditBookGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminOP\EditBookGUI.Designer.cs">
+      <DependentUpon>EditBookGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormState.cs" />
-    <Compile Include="View\Interface\IAdminView.cs" />
     <Compile Include="Controller\Interfaces\IUserInteract.cs" />
-    <Compile Include="View\Interface\IUserView.cs" />
+    <Compile Include="View\Interface\IObserver.cs" />
     <Compile Include="Controller\Interfaces\Observable.cs" />
     <Compile Include="Controller\Interfaces\Observer.cs" />
     <Compile Include="DataBase\Database1DataSet.Designer.cs">
@@ -135,6 +145,12 @@
     </Compile>
     <EmbeddedResource Include="View\AdminOP\CreateBookGUI.resx">
       <DependentUpon>CreateBookGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminOP\DeleteWindow.resx">
+      <DependentUpon>DeleteWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminOP\EditBookGUI.resx">
+      <DependentUpon>EditBookGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginGUI.resx">
       <DependentUpon>LoginGUI.cs</DependentUpon>

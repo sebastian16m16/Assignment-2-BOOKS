@@ -18,9 +18,9 @@ namespace Assignment2.Model.Interface
         double price { get; set; }
         int quantity { get; set; }
       
-        void addObserver(IUserView user);
+        void addObserver(IObserver user);
 
-        void removeObserver(IUserView user);
+        void removeObserver(IObserver user);
 
         //METHODS
         void insertBook();

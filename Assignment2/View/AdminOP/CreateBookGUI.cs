@@ -13,35 +13,51 @@ namespace Assignment2.View
 {
     public partial class CreateBookGUI : Form
     {
-        public CreateBookGUI()
+        Book book;
+        AdminGUI adminGUI;
+        public CreateBookGUI(AdminGUI adminGUI)
         {
             InitializeComponent();
             CenterToScreen();
             this.AcceptButton = button1;
-        }
-
-        private void Button2_Click(object sender, EventArgs e)
-        {
-            AdminGUI admin = new AdminGUI();
-            admin.Show();
-            this.Close();
+            this.adminGUI = adminGUI;
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            Book book = new Book(titleTextBox.Text, authorTextBox.Text, genreTextBox.Text,
-                Double.Parse(priceTextBox.Text), Int32.Parse(quantityTextBox.Text));
+            this.book = new Book(titleTextBox.Text, authorTextBox.Text, genreTextBox.Text,
+                Double.Parse(priceTextBox.Text), Int32.Parse(quantityTextBox.Text), adminGUI);
+            if (!book.existsBook())
+            {
+                book.insertBook();
 
-            book.insertBook();
+                MessageBox.Show("Book inserted!");
 
-            MessageBox.Show("Book inserted!");
+                this.Close();
+            }
+            else
+                MessageBox.Show("There already exists a book with this Title and Author!");
 
-            AdminGUI admin = new AdminGUI();
-            admin.Show();
-            this.Close();
+            
 
         }
 
+        private void PriceTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(priceTextBox.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers.");
+                priceTextBox.Text = priceTextBox.Text.Remove(priceTextBox.Text.Length - 1);
+            }
+        }
 
+        private void QuantityTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(quantityTextBox.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers.");
+                quantityTextBox.Text = quantityTextBox.Text.Remove(quantityTextBox.Text.Length - 1);
+            }
+        }
     }
 }

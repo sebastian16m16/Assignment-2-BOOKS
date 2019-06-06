@@ -39,7 +39,6 @@
             this.genreTextBox = new System.Windows.Forms.TextBox();
             this.priceTextBox = new System.Windows.Forms.TextBox();
             this.quantityTextBox = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -124,6 +123,7 @@
             this.priceTextBox.Name = "priceTextBox";
             this.priceTextBox.Size = new System.Drawing.Size(195, 26);
             this.priceTextBox.TabIndex = 9;
+            this.priceTextBox.TextChanged += new System.EventHandler(this.PriceTextBox_TextChanged);
             // 
             // quantityTextBox
             // 
@@ -131,23 +131,13 @@
             this.quantityTextBox.Name = "quantityTextBox";
             this.quantityTextBox.Size = new System.Drawing.Size(195, 26);
             this.quantityTextBox.TabIndex = 10;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(12, 25);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(77, 44);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Back";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.quantityTextBox.TextChanged += new System.EventHandler(this.QuantityTextBox_TextChanged);
             // 
             // CreateBookGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(425, 450);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.quantityTextBox);
             this.Controls.Add(this.priceTextBox);
             this.Controls.Add(this.genreTextBox);
@@ -179,6 +169,5 @@
         private System.Windows.Forms.TextBox genreTextBox;
         private System.Windows.Forms.TextBox priceTextBox;
         private System.Windows.Forms.TextBox quantityTextBox;
-        private System.Windows.Forms.Button button2;
     }
 }

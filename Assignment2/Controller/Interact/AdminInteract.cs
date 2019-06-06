@@ -8,6 +8,7 @@ using Assignment2.Controller.Interfaces;
 using Assignment2.Model;
 using System.Data.SqlClient;
 using Assignment2.DataBase;
+using Assignment2.View.Interface;
 
 namespace Assignment2.Controller.Interact
 {
@@ -25,30 +26,52 @@ namespace Assignment2.Controller.Interact
         {
             book.insertBook();
         }
-
         public void deleteBook(Book book)
         {
             book.deleteBook();
         }
-
         public void updateAuthor(Book book, String newAuthor)
         {
             book.updateAuthor(newAuthor);
         }
-
         public void updatePrice(Book book, double newPrice)
         {
             book.updatePrice(newPrice);
         }
-
         public void updateQuantity(Book book, int newQuantity)
         {
             book.updateQuantity(newQuantity);
         }
-
         public void updateTitle(Book book, String newTitle)
         {
             book.updateTitle(newTitle);
+        }
+        public Book getBook(string title, string author, IObserver observer)
+        {
+            Book book = new Book();
+
+            String stmt1 = "Select * from Bookshelf where author = @author and title = @title";
+            using (SqlCommand idCommand = new SqlCommand(stmt1, dBConnection.getConnection()))
+            {
+                idCommand.Parameters.AddWithValue("@author", author);
+                idCommand.Parameters.AddWithValue("@title", title);
+
+                SqlDataReader reader = idCommand.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        book = new Book(reader.GetInt32(0), reader.GetString(1),
+                         reader.GetString(2), reader.GetString(3), reader.GetDouble(4), reader.GetInt32(5), observer);
+                    }
+                }
+            }
+            return book;
+        }
+        public void updateGenre(Book book, string newGenre)
+        {
+            book.updateGenre(newGenre);
         }
     }
 }

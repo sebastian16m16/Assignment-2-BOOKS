@@ -20,25 +20,6 @@ namespace Assignment2
         public LoginGUI()
         {
             InitializeComponent();
-
-            //Book book = new Book("Valvet Dream", "Ion Popa", "roman", 34.6);
-
-            //book.insertBook();
-
-            //Console.WriteLine(book.bookInfo());
-
-
-
-            //Book tes1 = new Book();
-            //tes1.book_id = 5;
-            //tes1.updateBookObject();
-            //Console.WriteLine(tes1.bookInfo());
-
-            //tes1.updatePrice(40);
-            //Console.WriteLine(tes1.bookInfo());
-
-            //tes1.deleteBook();
-
             CenterToScreen();
             this.AcceptButton = loginBtn;
         }
@@ -55,12 +36,14 @@ namespace Assignment2
                 {
                     UserGUI userGUI = new UserGUI();
                     userGUI.Show();
+                    FormState.PreviousPage = this;
                     this.Hide();
                 }
                 else
                 {
                     AdminGUI adminGUI = new AdminGUI();
                     adminGUI.Show();
+                    FormState.PreviousPage = this;
                     this.Hide();
                     
                 }

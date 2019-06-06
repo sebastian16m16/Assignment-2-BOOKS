@@ -32,7 +32,7 @@ namespace Assignment2.View.UserOP
 
         private void SellButton_Click(object sender, EventArgs e)
         {
-            this.book = userInteract.getBook(titleBox.Text, authorBox.Text);
+            this.book = userInteract.getBook(titleBox.Text, authorBox.Text, user);
 
             if (userInteract.existsBook(this.book))
             {
@@ -70,7 +70,7 @@ namespace Assignment2.View.UserOP
             if (!authorBox.Text.Equals("") && !titleBox.Text.Equals(""))
             {
 
-                this.book = userInteract.getBook(titleBox.Text, authorBox.Text);
+                this.book = userInteract.getBook(titleBox.Text, authorBox.Text, user);
                 if (book.existsBook())
                 {
                     if (quantityBox.Text.Equals(""))

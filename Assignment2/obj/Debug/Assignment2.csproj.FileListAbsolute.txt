@@ -12,3 +12,5 @@ C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.Log
 C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.View.AdminGUI.resources
 C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.View.CreateBookGUI.resources
 C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.View.UserOP.SellWindow.resources
+C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.View.AdminOP.EditBookGUI.resources
+C:\Learning\C#\Software Design\Assignment2\Assignment2\obj\Debug\Assignment2.View.AdminOP.DeleteWindow.resources
