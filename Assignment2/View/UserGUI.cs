@@ -27,6 +27,14 @@ namespace Assignment2.View
 
         }
 
+        internal IObserver IObserver
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         UserInteract userInteract = new UserInteract();
         private void Button1_Click(object sender, EventArgs e)
         {

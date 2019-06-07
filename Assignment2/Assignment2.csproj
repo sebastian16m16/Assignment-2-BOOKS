@@ -191,6 +191,7 @@
     <None Include="BookDataSet1.xss">
       <DependentUpon>BookDataSet1.xsd</DependentUpon>
     </None>
+    <None Include="ClassDiagram1.cd" />
     <None Include="DataBase\Database1DataSet.xsc">
       <DependentUpon>Database1DataSet.xsd</DependentUpon>
     </None>

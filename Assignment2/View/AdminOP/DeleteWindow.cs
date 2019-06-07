@@ -24,7 +24,14 @@ namespace Assignment2.View.AdminOP
             AcceptButton = deleteButton;
             this.adminGUI = adminGUI;
         }
-        
+
+        public AdminGUI AdminGUI
+        {
+            get => default;
+            set
+            {
+            }
+        }
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {

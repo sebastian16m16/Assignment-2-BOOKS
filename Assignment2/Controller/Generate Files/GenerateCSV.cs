@@ -10,6 +10,21 @@ namespace Assignment2.Controller.Generate_Files
 {
     class GenerateCSV
     {
+        internal Interact.AdminInteract AdminInteract
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        internal Interact.UserInteract UserInteract
+        {
+            get => default;
+            set
+            {
+            }
+        }
 
         public void addNeededBook(String title, String author)
         {

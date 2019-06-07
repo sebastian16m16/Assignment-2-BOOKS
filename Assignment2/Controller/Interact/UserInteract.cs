@@ -17,6 +17,14 @@ namespace Assignment2.Controller.Interact
     {
         DBConnection dBConnection = new DBConnection();
 
+        internal IUserInteract IUserInteract
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public Book getBook(string title, string author, IObserver observer)
         {
             Book book = new Book();

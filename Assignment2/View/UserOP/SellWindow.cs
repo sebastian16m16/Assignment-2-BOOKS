@@ -112,5 +112,12 @@ namespace Assignment2.View.UserOP
             
         }
 
+        public UserGUI UserGUI
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

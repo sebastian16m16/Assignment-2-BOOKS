@@ -23,6 +23,15 @@ namespace Assignment2.View.AdminOP
             AcceptButton = insertBook;
             this.adminGUI = adminGUI;
         }
+
+        public AdminGUI AdminGUI
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         AdminGUI adminGUI;
         AdminInteract adminInteract = new AdminInteract();
         bool found;

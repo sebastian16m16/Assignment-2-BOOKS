@@ -23,6 +23,14 @@ namespace Assignment2.View
             this.adminGUI = adminGUI;
         }
 
+        public AdminGUI AdminGUI
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         private void Button1_Click(object sender, EventArgs e)
         {
             this.book = new Book(titleTextBox.Text, authorTextBox.Text, genreTextBox.Text,

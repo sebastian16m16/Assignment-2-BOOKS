@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Assignment2.View.AdminGUI" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gEBAAIKAQCEAIAAQEACAAQAGAQCAAgAIIEDAEiQFAAE=</HashCode>
+      <FileName>View\AdminGUI.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="IObserver" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Assignment2.View.CreateBookGUI" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAECAAABAAAACBQCACQEIIQAAAAIAAAAAAQAA=</HashCode>
+      <FileName>View\AdminOP\CreateBookGUI.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AdminGUI" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Assignment2.View.UserGUI" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AhCBACCCQCAAICAQsACAAQACAQCAwgIIBADEAgQEEAA=</HashCode>
+      <FileName>View\UserGUI.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="IObserver" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Assignment2.View.AdminOP.DeleteWindow" Collapsed="true">
+    <Position X="4.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAECAAABAAAACBQAAGQAAAAAAAAAAAAAAAQAE=</HashCode>
+      <FileName>View\AdminOP\DeleteWindow.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AdminGUI" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Assignment2.View.AdminOP.EditBookGUI" Collapsed="true">
+    <Position X="2.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAoIAECAAIBAAAACBQCACQAAAQAAAAIAAAAAAQAA=</HashCode>
+      <FileName>View\AdminOP\EditBookGUI.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AdminGUI" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Assignment2.LoginGUI" Collapsed="true">
+    <Position X="6.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAABAAACCABQECAAQAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>View\LoginGUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment2.View.UserOP.SellWindow" Collapsed="true">
+    <Position X="6.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAABAAAECAAABQCgACAQAACAEAAgAAAAAAEAAAAEQA=</HashCode>
+      <FileName>View\UserOP\SellWindow.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UserGUI" />
+    </ShowAsAssociation>
+  </Class>
+  <Interface Name="Assignment2.View.Interface.IObserver">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>View\Interface\IObserver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

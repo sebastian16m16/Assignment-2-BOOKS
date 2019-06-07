@@ -11,8 +11,23 @@ namespace Assignment2.Controller
 {
     class GeneratePDF
     {
+        internal Interact.AdminInteract AdminInteract
+        {
+            get => default;
+            set
+            {
+            }
+        }
 
-       public void createPDF(String filename, String text)
+        internal Interact.UserInteract UserInteract
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public void createPDF(String filename, String text)
         {
             filename = filename + ".pdf";
             Document document = new Document(PageSize.B8, 20f, 20f, 30f, 30f);

@@ -21,7 +21,14 @@ namespace Assignment2.Model
         public double price { get; set; }
         public int quantity { get; set; }
 
-       
+        internal IBookModel IBookModel
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         private IObserver userView;
 
         DBConnection dBConnection = new DBConnection();

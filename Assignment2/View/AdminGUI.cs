@@ -23,6 +23,14 @@ namespace Assignment2.View
             CenterToScreen();
         }
 
+        internal IObserver IObserver
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         AdminInteract adminInteract = new AdminInteract();
 
         private void BackButton_Click(object sender, EventArgs e)

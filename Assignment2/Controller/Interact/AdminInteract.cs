@@ -24,6 +24,14 @@ namespace Assignment2.Controller.Interact
            
         }
 
+        internal IAdminInteract IAdminInteract
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public void insertBook (Book book)
         {
             book.insertBook();
